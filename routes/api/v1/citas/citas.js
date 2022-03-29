@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
       updates: new Date(2022,0,19,18,41,0)
     }
   );
-}); //GET /
+});
+
 
 router.get('/all', async (req, res) => {
   try {
@@ -22,8 +23,9 @@ router.get('/all', async (req, res) => {
     console.log(ex);
     res.status(500).json({status:'failed'});
   }
-} );
-// /byid/1;
+});
+
+
 router.get('/byid/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,8 +37,9 @@ router.get('/byid/:id', async (req, res) => {
   }
 });
 
+
 const allowedItemsNumber = [10, 15, 20];
-//facet search
+
 router.get('/facet/:page/:items', async (req, res) => {
   const page = parseInt(req.params.page, 10);
   const items = parseInt(req.params.items, 10);
@@ -53,6 +56,7 @@ router.get('/facet/:page/:items', async (req, res) => {
   }
 
 });
+
 
 router.get('/byname/:name/:page/:items', async (req, res) => {
   const name = req.params.name;
@@ -72,6 +76,7 @@ router.get('/byname/:name/:page/:items', async (req, res) => {
 
 });
 
+
 router.post('/new', async (req, res) => {
   const {diagnostico, precio, fecha} = req.body;
   try {
@@ -89,10 +94,9 @@ router.post('/new', async (req, res) => {
         result: {}
       });
   }
-}); //POST /new
+});
 
 
-//router.put();
 router.put('/update/:id', async (req, res) => {
   try{
     const { paciente, user, doctor, diagnostico, precio, fecha} = req.body;
@@ -107,6 +111,7 @@ router.put('/update/:id', async (req, res) => {
     res.status(500).json({ status: 'failed' });
   }
 });
+
 
 router.put('/addtag/:id', async (req, res) => {
   try {
@@ -123,6 +128,7 @@ router.put('/addtag/:id', async (req, res) => {
   }
 });
 
+
 router.put('/addtagset/:id', async (req, res) => {
   try {
     const { tag } = req.body;
@@ -137,6 +143,7 @@ router.put('/addtagset/:id', async (req, res) => {
     res.status(500).json({ status: 'failed' });
   }
 });
+
 
 router.put('/removetag/:id', async (req, res) => {
   try {
@@ -153,7 +160,7 @@ router.put('/removetag/:id', async (req, res) => {
   }
 });
 
-//router.delete();
+
 router.delete('/delete/:id', async (req, res) => {
   try {
     const { id } = req.params;
