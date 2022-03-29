@@ -64,7 +64,7 @@ class Pacientes {
   }
 
 
-  async updateOne(id, identidad, nombre_completo, telefono, fecha_nacimiento, edad, id_seguro, seguro,email) {
+  async updateOne(id, identidad, nombre_completo, telefono, fecha_nacimiento, email) {
     const filter = {_id: new ObjectId(id)};
     const updateCmd = {
       '$set':{
