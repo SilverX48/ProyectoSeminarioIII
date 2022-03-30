@@ -18,9 +18,6 @@ class Citas {
 
   async new(diagnostico, precio, fecha) {
     const newCitas = {
-      paciente, 
-      user, 
-      doctor, 
       diagnostico, 
       precio, 
       fecha

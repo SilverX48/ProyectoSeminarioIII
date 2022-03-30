@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Reservaciones = require('../../../../dao/citas/citas.model');
+const Reservaciones = require('../../../../dao/reservaciones/reservacion.model');
 const reservacionesModel = new Reservaciones();
 
 
@@ -9,7 +9,7 @@ router.get('/all', async (req, res) => {
   try {
     console.log("User Request", req.user);
     const rows = await reservacionesModel.getAll();
-    res.status(200).json({status:'ok', cita: rows});
+    res.status(200).json({status:'ok', reservaciones: rows});
   } catch (ex) {
     console.log(ex);
     res.status(500).json({status:'failed'});
