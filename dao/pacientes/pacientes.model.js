@@ -16,15 +16,12 @@ class Pacientes {
       .catch((err) => { console.error(err) });
   }
 
-  async new(identidad, nombre_completo, telefono, fecha_nacimiento, edad, id_seguro, seguro,email) {
+  async new(identidad, nombre_completo, telefono, fecha_nacimiento, email) {
     const newPaciente = {
       identidad,
       nombre_completo,
       telefono,
       fecha_nacimiento,
-      edad,
-      id_seguro,
-      seguro,
       email
     };
     const rslt = await this.collection.insertOne(newPaciente);
