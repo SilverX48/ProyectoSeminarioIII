@@ -42,13 +42,13 @@ router.post('/login', async (req, res)=>{
       
       if (isPasswordValid) {
         const {user, rol, _id} = userInDb;
-        const payload = {
+        const usuario_actual = {
           jwt: jwt.sign({ user, rol, _id }, process.env.JWT_SECRET),
-          user: { user, rol, _id }
+           user, rol, _id 
         }
 
-        res.status(200).json(payload);
-        console.log(payload);
+        res.status(200).json(usuario_actual);
+        console.log(usuario_actual);
       } else {
         res.status(400).json({ status: 'failed', error: 2 });
       }
