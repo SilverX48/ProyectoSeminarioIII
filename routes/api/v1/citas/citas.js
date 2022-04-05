@@ -9,7 +9,7 @@ router.get('/all', async (req, res) => {
   try {
     console.log("User Request", req.user);
     const rows = await citaModel.getAll();
-    res.status(200).json({status:'ok', citas: rows});
+    res.send(rows)
   } catch (ex) {
     console.log(ex);
     res.status(500).json({status:'failed'});

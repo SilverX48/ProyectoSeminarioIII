@@ -15,8 +15,8 @@ const reservacionesRoutes = require('./reservaciones/reservaciones');
 router.use(passport.initialize());
 
 router.use('/pacientes', pacientesRoutes);
-router.use('/citas', jwtMiddleware, citasRoutes);
+router.use('/citas', citasRoutes);
 router.use('/seguridad_personal', seguridad_personalRoutes);
-router.use('/reservaciones', jwtMiddleware, reservacionesRoutes);
+router.use('/reservaciones', reservacionesRoutes);
 
 module.exports = router;
