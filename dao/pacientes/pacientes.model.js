@@ -65,14 +65,11 @@ class Pacientes {
     const filter = {_id: new ObjectId(id)};
     const updateCmd = {
       '$set':{
-      identidad,
-      nombre_completo,
-      telefono,
-      fecha_nacimiento,
-      edad,
-      id_seguro,
-      seguro,
-      email
+        identidad,
+        nombre_completo,
+        telefono,
+        fecha_nacimiento,
+        email
       }
     };
     return await this.collection.updateOne(filter, updateCmd);
