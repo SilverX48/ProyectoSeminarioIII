@@ -9,7 +9,7 @@ router.get('/all', async (req, res) => {
   try {
     console.log("User Request", req.user);
     const rows = await reservacionesModel.getAll();
-    res.send(rows)
+    res.send(rows);
   } catch (ex) {
     console.log(ex);
     res.status(500).json({status:'failed'});
@@ -37,9 +37,9 @@ router.get('/facet/:page/:items', async (req, res) => {
 
 
 router.post('/new', async (req, res) => {
-  const {fecha, descripcion} = req.body;
+  const {identidad, nombre_paciente, fecha, descripcion} = req.body;
   try {
-    rslt = await reservacionesModel.new(fecha, descripcion);
+    rslt = await reservacionesModel.new(identidad, nombre_paciente, fecha, descripcion);
     res.status(200).json(
       {
         status: 'ok',
@@ -58,9 +58,9 @@ router.post('/new', async (req, res) => {
 
 router.put('/update/:id', async (req, res) => {
   try{
-    const { fecha, descripcion} = req.body;
+    const {identidad, nombre_paciente, fecha, descripcion} = req.body;
     const { id } = req.params;
-    const result = await reservacionesModel.updateOne(id, fecha, descripcion);
+    const result = await reservacionesModel.updateOne(id, identidad, nombre_paciente, fecha, descripcion);
     res.status(200).json({
       status:'ok',
       result

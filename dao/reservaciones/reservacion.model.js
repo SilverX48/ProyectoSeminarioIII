@@ -17,8 +17,10 @@ class Reservaciones {
     }
 
 
-    async new(fecha, descripcion) {
+    async new(identidad, nombre_paciente, fecha, descripcion) {
       const newReservacion = {
+        identidad, 
+        nombre_paciente,
         fecha,
         descripcion
       };

@@ -68,9 +68,9 @@ router.get('/byname/:name/:page/:items', async (req, res) => {
 
 
 router.post('/new', async (req, res) => {
-  const {diagnostico, precio, fecha} = req.body;
+  const {identidad, nombre_paciente, doctor,diagnostico, precio, fecha} = req.body;
   try {
-    rslt = await citaModel.new(diagnostico, precio, fecha);
+    rslt = await citaModel.new(identidad, nombre_paciente, doctor,diagnostico, precio, fecha);
     res.status(200).json(
       {
         status: 'ok',

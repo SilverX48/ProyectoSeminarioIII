@@ -16,8 +16,11 @@ class Citas {
       .catch((err) => { console.error(err) });
   }
 
-  async new(diagnostico, precio, fecha) {
+  async new(identidad, nombre_paciente, doctor,diagnostico, precio, fecha) {
     const newCitas = {
+      identidad, 
+      nombre_paciente, 
+      doctor,
       diagnostico, 
       precio, 
       fecha
